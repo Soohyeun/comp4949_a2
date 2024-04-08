@@ -9,30 +9,29 @@
     {% extends "base.html" %}
 
     {% block content %}
-    <h1>Valentine Date prediction page</h1>
+    <h1>Valentine Date prediction page</h1><br>
 
       <!-- This form references the homePost route. -->
     <form action="{% url 'homePost' %}" method="post">
     {% csrf_token %}
         <h3>Age</h3>
-        <input type="number" id="age" name="age" min="18" max="40" placeholder="Enter between 18 and 40"><br>
-
+        <input type="number" id="age" name="age" min="18" max="40" placeholder="Enter between 18 and 40" class="form-control" aria-label="Sizing example input" ><br>
         <h3>Gender</h3>
         <!-- Show radio button list named 'choice' -->
         {% for gender in genders %}
             <input type="radio" name="gender" id="gender{{ forloop.counter }}" value="{{ gender }}">
             <label for="gender{{ forloop.counter }}">{{ gender }}</label>
-        {% endfor %}<br>
+        {% endfor %}<br><br>
 
         <h3>Appearance Score</h3>
-        <input type="number" id="appearance_score" name="appearance_score" min="0" max="100" placeholder="Enter between 0 and 100"><br>
+        <input type="number" id="appearance_score" name="appearance_score" min="0" max="100" placeholder="Enter between 0 and 100" class="form-control" aria-label="Sizing example input" ><br>
 
         <h3>Job Type</h3>
         <!-- Show radio button list named 'choice' -->
         {% for job_type in job_types %}
             <input type="radio" name="job_type" id="job_type{{ forloop.counter }}" value="{{ job_type }}">
             <label for="job_type{{ forloop.counter }}">{{ job_type }}</label>
-        {% endfor %}<br>
+        {% endfor %}<br><br>
 
         <h3>Educational Status</h3>
         <!-- Show radio button list named 'choice' -->
@@ -41,8 +40,11 @@
             <label for="status{{ forloop.counter }}">{{ status }}</label>
         {% endfor %}<br><br><br>
 
-    <!—Submit button is also contained in the form -->
-    <input type="submit" value="POST YOUR CHOICE">
+        <!—Submit button is also contained in the form -->
+        <div class="input-group mb-3">
+        <button type="submit" class="btn btn-dark form-control">POST YOUR CHOICE</button>
+        </div>
+
     </form>
     <!-- End of form. -->
 

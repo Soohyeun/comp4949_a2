@@ -9,14 +9,19 @@
     {% extends "base.html" %}
 
     {% block content %}
-        <h1>Your Valentine Date prediction result</h1>
-        You entered the following information:<br/>
-        You chose age: {{age}}<br/>
-        You chose gender: {{gender}}<br/>
-        You chose appearance_score: {{appearance_score}}<br/>
-        You chose job_type: {{job_type}}<br/>
-        You chose educational_status: {{educational_status}}<br/>
+        <h1>Result of your Valentine Date prediction</h1><br/><br/>
+        You are {{age}} years old {{gender}} with appearance_score {{appearance_score}}.<br/>
+        Your job type is {{job_type}}<br/>
+        Your educational status is {{educational_status}}<br/><br/>
+
         Prediction: {{prediction}}<br/>
+        {{string_prediction}}<br/><br/><br/>
+
+        <div class="input-group mb-3">
+        <form action="/" method="get">
+        <button type="submit" class="btn btn-dark form-control">Go Back</button>
+        </form>
+</div>
     {% endblock content %}
 
 </body>

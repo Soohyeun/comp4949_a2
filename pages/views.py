@@ -85,9 +85,13 @@ def results(request, age, gender, appearance_score, job_type, educational_status
     singlePrediction = loadedModel.predict(singleSampleDf)
 
     print("Single prediction: " + str(singlePrediction))
+    print(singlePrediction[0])
+    string_prediction = "You will have Valentine Date :)" if singlePrediction[0] == 1 \
+        else "You will not have Valentine date :'("
 
     return render(request, 'results.html', {'age': age, 'gender': gender, 'appearance_score': appearance_score,
-                                            'job_type': job_type, 'educational_status': educational_status, 'prediction': singlePrediction})
+                                            'job_type': job_type, 'educational_status': educational_status,
+                                            'prediction': singlePrediction, 'string_prediction': string_prediction})
 
 
 def aboutPageView(request):
